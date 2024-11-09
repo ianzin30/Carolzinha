@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Romantic Image Page</title>
+    <!-- Include the custom font -->
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesanime.css">
+    <style>
+        .image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('meliodas.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Background Image Container -->
+    <div class="image-container">
+        <!-- Subtitle Text -->
+        <div class="subtitle">
+            <h2>O QUE QUERO DIZER, É QUE EU PASSARIA MAIS DE 3 MIL ANOS TE ESPERANDO, VENDO 106 VERSÕES SUAS DIFERENTES E ME APAIXONANDO POR CADA UMA, EU TE AMO.</h2>
+        </div>
+    </div>
+
+    <!-- Forward Button -->
+    <a href="page10.html" class="forward-button">
+        <img src="forward_red_button_icon_227832.webp" alt="Next">
+    </a>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="your-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- JavaScript to handle audio playback -->
+    <script>
+        // Attempt to play the audio on page load
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(() => {
+                // Auto-play was prevented, show a play button
+                const playButton = document.createElement('button');
+                playButton.textContent = 'Play Music';
+                playButton.className = 'audio-control';
+                playButton.addEventListener('click', () => {
+                    audio.play();
+                    playButton.style.display = 'none';
+                });
+                document.body.appendChild(playButton);
+            });
+        });
+    </script>
+
+</body>
+</html>
+

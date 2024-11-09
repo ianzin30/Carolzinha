@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Romantic Video Page</title>
+    <!-- Include the custom font -->
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <!-- Background Video Container -->
+    <div class="video-container">
+        <video id="background-video" autoplay muted loop playsinline>
+            <source src="WhatsApp Video 2024-11-09 at 13.08.57.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <!-- Subtitle Text -->
+        <div class="subtitle">
+            <h2>Depois da festa, eu fiquei muito feliz de ser chamado para sua casa, fiquei com medo de dirigir e implorei pro meu pai me levar, quando eu te vi do outro lado do portão do teu condomínio com teu sorriso ao sol pela primeira vez, eu confirmei a interpretação do meu coração sobre ti, não existe algo mais belo nesse mundo do que seu sorriso, eu te amo muito, eu também amo essa foto que tirei na sua casa a 2 anos kakakakkakkakkakaka.</h2>
+        </div>
+    </div>
+
+    <!-- Forward Button -->
+    <a href="page3.html" class="forward-button">
+        <img src="forward_red_button_icon_227832.webp" alt="Next">
+    </a>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="your-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- JavaScript to synchronize video and audio -->
+    <script>
+        // Get video and audio elements
+        const video = document.getElementById('background-video');
+        const audio = document.getElementById('background-music');
+
+        // Play audio when video starts
+        video.addEventListener('play', () => {
+            audio.currentTime = video.currentTime;
+            audio.play();
+        });
+
+        // Pause audio when video pauses
+        video.addEventListener('pause', () => {
+            audio.pause();
+        });
+
+        // Sync audio when video loops
+        video.addEventListener('ended', () => {
+            audio.currentTime = 0;
+        });
+
+        // Update audio time when video seeks
+        video.addEventListener('timeupdate', () => {
+            if (Math.abs(video.currentTime - audio.currentTime) > 0.5) {
+                audio.currentTime = video.currentTime;
+            }
+        });
+    </script>
+
+</body>
+</html>
